@@ -105,9 +105,7 @@ main{
     position:absolute;
     backface-visibility: hidden;
     background-color: white;
-    transform: rotateY('180deg');
-    justify-content: center;
-    display: flex;
+    transform: rotateY(180deg);
 }
 
 .hide{
