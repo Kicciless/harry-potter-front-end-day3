@@ -8,14 +8,14 @@ searchInput.addEventListener("input",(e)=>{
     const value=e.target.value.toLowerCase();
     console.log(value)
     characterArray.forEach((character)=>{
-        const inVisible=character.name.toLowerCase().includes(value);//makesure its one value together
-        character.element.classList.toggle("hide",! inVisible);
+        const isVisible=character.name.toLowerCase().includes(value);
+        character.element.classList.toggle("hide",!isVisible);
     })
 })
 
 getCharacters()
 
-//JavaScript Promise (layout) is a synchronose operation  - fetch then then 
+
 function getCharacters(){
     fetch("https://harrypotter-backend-api-day2-cy3m.onrender.com/characters")
     .then(res=>res.json())
@@ -23,18 +23,17 @@ function getCharacters(){
         console.log(data);
         showCharacters(data);
     })
-
 }
 
 function showCharacters(data){
-    main.innerHTML="";
+    main.innerHTML='';
 
     characterArray=data.map(character=>{
-    const {name, image}=character; // object destrucring 
+    const {name, image}=character;
 
     const characterEl=document.createElement('div');
     characterEl.classList.add('character');
-    characterEl.classList.add('font');
+    characterEl.classList.add('front');
 
     characterEl.innerHTML=
     `<img src=${image} alt=${name} onerror="handleError(this);"/>
@@ -46,18 +45,19 @@ function showCharacters(data){
     characterBack.classList.add('character');
     characterBack.classList.add('back');
 
-    characterBack.innerHTML= `<h1> Back of the card </h1>`
+    characterBack.innerHTML=`<h1>Back of the card</h1>`
 
     main.appendChild(characterEl);
     main.appendChild(characterBack);
-    return{
+    return {
         name:character.name,
         element:characterEl
     }
+
 })
 
 }
 
-function handleError(imageElment){
-    imageElment.src="images/wizard-icon.jpeg";
+function handleError(imgElement){
+    imgElement.src="images/wizard-icon.jpeg"
 }
