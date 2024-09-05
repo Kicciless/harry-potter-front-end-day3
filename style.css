@@ -56,7 +56,7 @@ main{
     flex-wrap:wrap;
     justify-content: center;
     position: relative;
-    background-color: transparent;
+    background-color: rgb(229, 29, 29);
 }
 
 .character{
@@ -72,12 +72,13 @@ main{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
 }
 
+/*hover psedo controls this flip*/ 
 .character:hover{
     transform:rotateY(180deg);
 }
 
 .character-info{
-    color:aliceblue;
+    color: black;
     display: flex;
     justify-content: center;
     padding-top: 0.5rem;
@@ -95,16 +96,27 @@ main{
 .front{
     position: relative;
     backface-visibility: hidden;
-    background-color: rgb(210, 83, 83);
+    background-color: white;
+    color:rgb(232, 204, 19);
+    text-align: center;
+    border-radius:20px ;
+    font-size: 18px;
+    font-weight: bold;
+    /*additional from tutorial */
     z-index: 1;
     overflow: hidden;
+
 }
 
-
 .back{
-    position:absolute;
+    position: absolute;
     backface-visibility: hidden;
-    background-color: white;
+    background: blue;
+    color:rgb(40, 201, 59);
+    text-align: center;
+    border-radius:20px ;
+    font-size: 18px;
+    font-weight: bold;
     transform: rotateY(180deg);
 }
 
